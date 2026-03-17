@@ -28,64 +28,86 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <div>
       {/* ── HERO ────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: 'var(--brand-dark)' }}>
-        {/* Background image with dark overlay */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+        {/* Большой номер-фон */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${HERO_IMG})`, opacity: 0.25 }}
-        />
+          className="absolute right-0 top-1/2 -translate-y-1/2 font-display font-semibold select-none pointer-events-none leading-none"
+          style={{ fontSize: 'clamp(160px, 28vw, 340px)', color: 'var(--brand-gray-light)', lineHeight: 1 }}
+        >
+          01
+        </div>
 
-        {/* Left blue accent bar */}
+        {/* Горизонтальные линии-акценты */}
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ backgroundColor: 'var(--brand-line)' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ backgroundColor: 'var(--brand-line)' }} />
+
+        {/* Вертикальная синяя полоса */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-blue" />
 
-        {/* Grid pattern background */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-
         <div className="relative container mx-auto px-6 pt-28 pb-20">
-          <div className="max-w-xl">
-            <div className="section-label anim-in op0">
-              <span style={{ color: 'rgba(255,255,255,0.5)' }}>Строительство под ключ</span>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
-            <h1
-              className="font-display font-semibold text-5xl md:text-[4.5rem] leading-none mb-6 anim-up op0 d1 text-white"
-            >
-              СТРОИМ
-              <br />
-              <span className="text-brand-blue">НАДЁЖНО.</span>
-              <br />
-              СДАЁМ
-              <br />
-              ВОВРЕМЯ.
-            </h1>
+            {/* Левая колонка — текст */}
+            <div className="md:col-span-7">
+              <div className="section-label anim-in op0">
+                <span>Строительство под ключ</span>
+              </div>
 
-            <p
-              className="font-body text-base leading-relaxed mb-10 anim-up op0 d2"
-              style={{ color: 'rgba(255,255,255,0.6)', maxWidth: 420 }}
-            >
-              Одноэтажные дома под ключ в Москве и Подмосковье.
-              Весь цикл — от фундамента до систем безопасности.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 anim-up op0 d3">
-              <button onClick={() => onNavigate('contacts')} className="btn-blue">
-                Получить консультацию
-                <Icon name="ArrowRight" size={15} />
-              </button>
-              <button
-                onClick={() => onNavigate('services')}
-                className="btn-blue-outline"
-                style={{ color: 'white', borderColor: 'rgba(255,255,255,0.4)' }}
+              <h1
+                className="font-display font-semibold leading-none mb-8 anim-up op0 d1"
+                style={{ fontSize: 'clamp(3rem, 7vw, 6rem)', color: 'var(--brand-dark)' }}
               >
-                Наши услуги
-              </button>
+                СТРОИМ
+                <br />
+                <span className="text-brand-blue">НАДЁЖНО.</span>
+                <br />
+                СДАЁМ
+                <br />
+                ВОВРЕМЯ.
+              </h1>
+
+              <div className="flex flex-col sm:flex-row gap-3 anim-up op0 d2">
+                <button onClick={() => onNavigate('contacts')} className="btn-blue">
+                  Получить консультацию
+                  <Icon name="ArrowRight" size={15} />
+                </button>
+                <button onClick={() => onNavigate('services')} className="btn-blue-outline">
+                  Наши услуги
+                </button>
+              </div>
             </div>
+
+            {/* Правая колонка — вертикальный текст + описание */}
+            <div className="md:col-span-5 flex items-start gap-6 anim-up op0 d3">
+              <div
+                className="hidden md:block font-display text-xs tracking-[0.3em] uppercase"
+                style={{
+                  color: 'var(--brand-blue)',
+                  writingMode: 'vertical-rl',
+                  transform: 'rotate(180deg)',
+                  paddingTop: 4,
+                }}
+              >
+                Москва и МО
+              </div>
+              <div style={{ borderLeft: '1px solid var(--brand-line)', paddingLeft: '1.5rem' }}>
+                <p className="font-body text-sm leading-relaxed mb-6" style={{ color: 'var(--brand-gray)' }}>
+                  Одноэтажные дома под ключ в Москве и Подмосковье.
+                  Весь цикл — от фундамента до систем безопасности.
+                </p>
+                <div className="space-y-3">
+                  {['Фиксированная цена', 'Гарантия качества', 'Сдача в срок'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-4 h-px bg-brand-blue flex-shrink-0" />
+                      <span className="font-body text-xs uppercase tracking-widest" style={{ color: 'var(--brand-dark)' }}>
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

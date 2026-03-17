@@ -5,13 +5,13 @@
 @layer base {
   :root {
     --background: 0 0% 97%;
-    --foreground: 220 15% 12%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 12%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 12%;
+    --popover-foreground: 220 20% 10%;
 
     --primary: 221 100% 32%;
     --primary-foreground: 0 0% 100%;
@@ -22,24 +22,24 @@
     --muted: 0 0% 92%;
     --muted-foreground: 220 10% 50%;
 
-    --accent: 7 83% 57%;
+    --accent: 221 100% 42%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
+    --border: 220 13% 86%;
+    --input: 220 13% 86%;
     --ring: 221 100% 32%;
 
-    --radius: 0.25rem;
+    --radius: 0rem;
 
-    /* Brand colors */
     --brand-blue: #0039a6;
-    --brand-red: #e94f37;
-    --brand-dark: #1a1d23;
-    --brand-gray: #4a5162;
-    --brand-gray-light: #f4f5f7;
+    --brand-blue-hover: #0047cc;
+    --brand-dark: #111418;
+    --brand-gray: #5a6272;
+    --brand-gray-light: #f2f3f5;
+    --brand-line: #dde0e6;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -53,11 +53,13 @@
 
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: "Golos Text", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1,
@@ -67,6 +69,7 @@
   h5,
   h6 {
     font-family: "Oswald", sans-serif;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -74,7 +77,6 @@
   .font-display {
     font-family: "Oswald", sans-serif;
   }
-
   .font-body {
     font-family: "Golos Text", sans-serif;
   }
@@ -82,14 +84,8 @@
   .text-brand-blue {
     color: var(--brand-blue);
   }
-  .text-brand-red {
-    color: var(--brand-red);
-  }
   .bg-brand-blue {
     background-color: var(--brand-blue);
-  }
-  .bg-brand-red {
-    background-color: var(--brand-red);
   }
   .bg-brand-dark {
     background-color: var(--brand-dark);
@@ -100,25 +96,88 @@
   .border-brand-blue {
     border-color: var(--brand-blue);
   }
-  .border-brand-red {
-    border-color: var(--brand-red);
+  .text-brand-gray {
+    color: var(--brand-gray);
   }
 
-  .hover-scale {
-    @apply transition-transform duration-200 hover:scale-105;
+  .btn-blue {
+    background-color: var(--brand-blue);
+    color: #fff;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 0.85rem 2rem;
+    border: 2px solid var(--brand-blue);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-blue:hover {
+    background-color: var(--brand-blue-hover);
+    border-color: var(--brand-blue-hover);
   }
 
-  @keyframes fadeInUp {
+  .btn-blue-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 0.85rem 2rem;
+    border: 2px solid var(--brand-blue);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-blue-outline:hover {
+    background-color: var(--brand-blue-hover);
+    border-color: var(--brand-blue-hover);
+    color: #fff;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--brand-blue);
+    flex-shrink: 0;
+  }
+  .section-label span {
+    font-family: "Oswald", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+  }
+
+  @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(22px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -128,49 +187,28 @@
     }
   }
 
-  @keyframes slideInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  .anim-up {
+    animation: fadeUp 0.65s ease forwards;
   }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 0.7s ease-out forwards;
+  .anim-in {
+    animation: fadeIn 0.5s ease forwards;
   }
-
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+  .op0 {
+    opacity: 0;
   }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.7s ease-out forwards;
-  }
-
-  .delay-100 {
+  .d1 {
     animation-delay: 0.1s;
   }
-  .delay-200 {
-    animation-delay: 0.2s;
+  .d2 {
+    animation-delay: 0.22s;
   }
-  .delay-300 {
-    animation-delay: 0.3s;
+  .d3 {
+    animation-delay: 0.34s;
   }
-  .delay-400 {
-    animation-delay: 0.4s;
+  .d4 {
+    animation-delay: 0.46s;
   }
-  .delay-500 {
-    animation-delay: 0.5s;
-  }
-  .delay-600 {
-    animation-delay: 0.6s;
-  }
-
-  .opacity-0-init {
-    opacity: 0;
+  .d5 {
+    animation-delay: 0.58s;
   }
 }

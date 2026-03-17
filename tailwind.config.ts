@@ -59,9 +59,9 @@ export default {
 				},
 				brand: {
 					blue: '#0039A6',
-					red: '#E94F37',
-					dark: '#1a1d23',
-					gray: '#4a5162',
+					'blue-hover': '#0047CC',
+					dark: '#111418',
+					gray: '#5a6272',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

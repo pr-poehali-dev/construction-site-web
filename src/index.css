@@ -4,51 +4,51 @@
 
 @layer base {
   :root {
-    --background: 0 0% 97%;
-    --foreground: 220 20% 10%;
+    --background: 30 20% 97%;
+    --foreground: 25 25% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card: 30 15% 99%;
+    --card-foreground: 25 25% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover: 30 15% 99%;
+    --popover-foreground: 25 25% 12%;
 
-    --primary: 221 100% 32%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 25 60% 35%;
+    --primary-foreground: 30 20% 97%;
 
-    --secondary: 0 0% 94%;
-    --secondary-foreground: 220 15% 20%;
+    --secondary: 30 15% 92%;
+    --secondary-foreground: 25 20% 20%;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 30 12% 90%;
+    --muted-foreground: 25 10% 50%;
 
-    --accent: 221 100% 42%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 25 55% 42%;
+    --accent-foreground: 30 20% 97%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 30 20% 97%;
 
-    --border: 220 13% 86%;
-    --input: 220 13% 86%;
-    --ring: 221 100% 32%;
+    --border: 30 15% 84%;
+    --input: 30 15% 84%;
+    --ring: 25 60% 35%;
 
     --radius: 0rem;
 
-    --brand-blue: #0039a6;
-    --brand-blue-hover: #0047cc;
-    --brand-dark: #111418;
-    --brand-gray: #5a6272;
-    --brand-gray-light: #f2f3f5;
-    --brand-line: #dde0e6;
+    --brand-blue: #7c4a1e;
+    --brand-blue-hover: #9a5c28;
+    --brand-dark: #1e1208;
+    --brand-gray: #6b5c4e;
+    --brand-gray-light: #f5f0eb;
+    --brand-line: #e0d5c8;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 30 20% 97%;
+    --sidebar-foreground: 25 20% 26%;
+    --sidebar-primary: 25 25% 10%;
+    --sidebar-primary-foreground: 30 20% 97%;
+    --sidebar-accent: 30 15% 94%;
+    --sidebar-accent-foreground: 25 20% 10%;
+    --sidebar-border: 30 15% 88%;
+    --sidebar-ring: 25 60% 45%;
   }
 
   * {
@@ -68,14 +68,14 @@
   h4,
   h5,
   h6 {
-    font-family: "Oswald", sans-serif;
-    letter-spacing: 0.02em;
+    font-family: "Playfair Display", serif;
+    letter-spacing: 0.01em;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: "Oswald", sans-serif;
+    font-family: "Playfair Display", serif;
   }
   .font-body {
     font-family: "Golos Text", sans-serif;
@@ -161,9 +161,9 @@
     flex-shrink: 0;
   }
   .section-label span {
-    font-family: "Oswald", sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
+    font-family: "Golos Text", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--brand-blue);
   }

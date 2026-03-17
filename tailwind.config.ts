@@ -20,7 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['Oswald', 'sans-serif'],
+				display: ['Playfair Display', 'serif'],
 				body: ['Golos Text', 'sans-serif'],
 			},
 			colors: {
@@ -58,10 +58,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				brand: {
-					blue: '#0039A6',
-					'blue-hover': '#0047CC',
-					dark: '#111418',
-					gray: '#5a6272',
+					blue: '#7c4a1e',
+					'blue-hover': '#9a5c28',
+					dark: '#1e1208',
+					gray: '#6b5c4e',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

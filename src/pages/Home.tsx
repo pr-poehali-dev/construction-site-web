@@ -28,16 +28,11 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <div>
       {/* ── HERO ────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
-        {/* Blueprint image — right side, faded */}
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: 'var(--brand-dark)' }}>
+        {/* Background image with dark overlay */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-1/2 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${HERO_IMG})`,
-            opacity: 0.18,
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.9) 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.9) 100%)',
-          }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${HERO_IMG})`, opacity: 0.25 }}
         />
 
         {/* Left blue accent bar */}
@@ -47,21 +42,19 @@ export default function Home({ onNavigate }: HomeProps) {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: 'linear-gradient(var(--brand-line) 1px, transparent 1px), linear-gradient(90deg, var(--brand-line) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
-            opacity: 0.35,
           }}
         />
 
         <div className="relative container mx-auto px-6 pt-28 pb-20">
           <div className="max-w-xl">
             <div className="section-label anim-in op0">
-              <span>Строительство под ключ</span>
+              <span style={{ color: 'rgba(255,255,255,0.5)' }}>Строительство под ключ</span>
             </div>
 
             <h1
-              className="font-display font-semibold text-5xl md:text-[4.5rem] leading-none mb-6 anim-up op0 d1"
-              style={{ color: 'var(--brand-dark)' }}
+              className="font-display font-semibold text-5xl md:text-[4.5rem] leading-none mb-6 anim-up op0 d1 text-white"
             >
               СТРОИМ
               <br />
@@ -74,7 +67,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <p
               className="font-body text-base leading-relaxed mb-10 anim-up op0 d2"
-              style={{ color: 'var(--brand-gray)', maxWidth: 420 }}
+              style={{ color: 'rgba(255,255,255,0.6)', maxWidth: 420 }}
             >
               Одноэтажные дома под ключ в Москве и Подмосковье.
               Весь цикл — от фундамента до систем безопасности.
@@ -85,7 +78,11 @@ export default function Home({ onNavigate }: HomeProps) {
                 Получить консультацию
                 <Icon name="ArrowRight" size={15} />
               </button>
-              <button onClick={() => onNavigate('services')} className="btn-blue-outline">
+              <button
+                onClick={() => onNavigate('services')}
+                className="btn-blue-outline"
+                style={{ color: 'white', borderColor: 'rgba(255,255,255,0.4)' }}
+              >
                 Наши услуги
               </button>
             </div>
